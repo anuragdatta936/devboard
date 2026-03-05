@@ -1,22 +1,21 @@
 import "./globals.css";
 import { ReactNode } from "react";
-import Navbar from "@/components/Navbar";
+import Providers from "./providers";
 
 export const metadata = {
   title: "DevBoard",
-  description: "Mini Task Manager built with Next.js",
+  description: "Developer dashboard — tasks, notes, stats",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gray-100 min-h-screen">
-        <Navbar />
-        <main className="max-w-3xl mx-auto p-6">{children}</main>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className="noise-bg min-h-screen" style={{ background: "var(--bg-base)" }}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
